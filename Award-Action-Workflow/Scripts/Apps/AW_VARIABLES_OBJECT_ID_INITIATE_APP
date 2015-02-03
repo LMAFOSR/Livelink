@@ -1,0 +1,55 @@
+[LL_WEBREPORT_EXCLUDEHTML /]define(function () {
+
+    coreVariables.auditWF_loadSeqID = "[LL_REPTAG_"AW_SEQ_RS_WF_AUDIT_LOG_ID" NODEINFO:ID /]";
+    coreVariables.AW_SEL_RS_WF_MESSAGES = '[LL_REPTAG_"AW_SEL_RS_WF_MESSAGES" NODEINFO:ID /]';
+    coreVariables.AW_FIND_PK_AWARD_FILE = "[LL_REPTAG_"AW_FIND_PK_AWARD_FILE" NODEINFO:ID /]";
+    coreVariables.AW_FIND_RD_CASE_FILE = "[LL_REPTAG_"AW_FIND_RD_CASE_FILE" NODEINFO:ID /]";
+    coreVariables.AW_WF_MAP2 = "[LL_REPTAG_"AW_WF_MAP2" NODEINFO:ID /]";
+    coreVariables.retrieveActionInformation = "[LL_REPTAG_"AW_ACTION_FLYOUT_00" NODEINFO:ID /]"; 
+    coreVariables.retrieveAwardInformation = "[LL_REPTAG_"AW_AWARD_FLYOUT" NODEINFO:ID /]"; 
+    coreVariables.retrieveInstitution = "[LL_REPTAG_"AW_INSTITUTION_FLYOUT" NODEINFO:ID /]"; 
+    coreVariables.retrievePI = "[LL_REPTAG_"AW_PI_FLYOUT" NODEINFO:ID /]"; 
+    coreVariables.AW_CHECKLIST_SUMMARY_00 = "[LL_REPTAG_"AW_CHECKLIST_SUMMARY_00" NODEINFO:ID /]";
+    coreVariables.AW_CONTRACT_TYPE_V3_00 = "[LL_REPTAG_"AW_CONTRACT_TYPE_V3_00" NODEINFO:ID /]";
+    coreVariables.AW_PK_TEAM_00_V2 = "[LL_REPTAG_"AW_PK_TEAM_00_V2" NODEINFO:ID /]";
+    coreVariables.AW_PK_OFFICER_V2_00 = "[LL_REPTAG_"AW_PK_OFFICER_V2_00" NODEINFO:ID /]";
+    coreVariables.AW_ASSIGN_BUYER_V2_00 = "[LL_REPTAG_"AW_ASSIGN_BUYER_V2_00" NODEINFO:ID /]";
+    coreVariables.AW_ASSIGN_BUYER_02 = '[LL_REPTAG_"AW_ASSIGN_BUYER_02" NODEINFO:ID /]';
+    coreVariables.AW_LATE_DELIVERABLES = '[LL_REPTAG_"AW_LATE_DELIVERABLES" NODEINFO:ID /]';
+    coreVariables.AW_LATE_DELIVERABLES_V2_00 = '[LL_REPTAG_"AW_LATE_DELIVERABLES_V2_00" NODEINFO:ID /]';
+    coreVariables.AW_CHECKLIST_SUMMARY_BUYER = '[LL_REPTAG_"AW_CHECKLIST_SUMMARY_BUYER" NODEINFO:ID /]';
+    coreVariables.AW_CHECKLIST_V2_00 = '[LL_REPTAG_"AW_CHECKLIST_V2_00" NODEINFO:ID /]';
+    coreVariables.AW_CHECKLIST_01 = '[LL_REPTAG_"AW_CHECKLIST_01" NODEINFO:ID /]';
+    coreVariables.AW_U_RS_ACTION_WF_PK_TEAM = '[LL_REPTAG_"AW_U_RS_ACTION_WF_PK_TEAM" NODEINFO:ID /]';
+    coreVariables.AW_U_RS_ACTION_WF_PK_OFFICER = '[LL_REPTAG_"AW_U_RS_ACTION_WF_PK_OFFICER" NODEINFO:ID /]';
+    coreVariables.AW_U_RS_ACTION_WF_Buyer = '[LL_REPTAG_"AW_U_RS_ACTION_WF_Buyer" NODEINFO:ID /]';
+    coreVariables.AW_TAB_COMPLETION_VERIFICATION = '[LL_REPTAG_"AW_TAB_COMPLETION_VERIFICATION" NODEINFO:ID /]';
+    coreVariables.AW_WORKFLOW_STATUS = '[LL_REPTAG_"AW_WORKFLOW_STATUS" NODEINFO:ID /]';
+    coreVariables.AW_TECH_EVAL_REPORT_00 = '[LL_REPTAG_"AW_TECH_EVAL_REPORT_00" NODEINFO:ID /]';
+    coreVariables.AW_COST_EVAL_REPORT_00 = '[LL_REPTAG_"AW_COST_EVAL_REPORT_00" NODEINFO:ID /]';
+    
+    coreVariables.AW_PROPOSAL_TECH_EVAL_V2_00 = '[LL_REPTAG_"AW_PROPOSAL_TECH_EVAL_V2_00" NODEINFO:ID /]';
+    coreVariables.AW_TECH_EVAL_V2_00 = '[LL_REPTAG_"AW_TECH_EVAL_V2_00" NODEINFO:ID /]';
+    coreVariables.AW_TECH_EVAL_01 = '[LL_REPTAG_"AW_TECH_EVAL_01" NODEINFO:ID /]';
+    coreVariables.AW_TECH_EVAL_00_V3 = '[LL_REPTAG_"AW_TECH_EVAL_00_V3" NODEINFO:ID /]';
+
+    coreVariables.AW_PROPOSAL_COST_EVAL_V2_00 = '[LL_REPTAG_"AW_PROPOSAL_COST_EVAL_V2_00" NODEINFO:ID /]';
+    coreVariables.AW_COST_EVAL_V2_00 = '[LL_REPTAG_"AW_COST_EVAL_V2_00" NODEINFO:ID /]';
+    coreVariables.AW_COST_EVAL_01 = '[LL_REPTAG_"AW_COST_EVAL_01" NODEINFO:ID /]';
+    coreVariables.AW_COST_EVAL_V3_00 = '[LL_REPTAG_"AW_COST_EVAL_V3_00" NODEINFO:ID /]';
+    
+    coreVariables.AW_TASK_SUMMARY_01 = '[LL_REPTAG_"AW_TASK_SUMMARY_01" NODEINFO:ID /]';
+   	coreVariables.AW_AFRL_FORM1_01 = '[LL_REPTAG_"AW_AFRL_FORM1_01" NODEINFO:ID /]';
+    coreVariables.AW_RECORD_OF_COORDINATION_00 = '[LL_REPTAG_"AW_RECORD_OF_COORDINATION_00" NODEINFO:ID /]';
+    
+    /* validation/cancelPR additions */
+    coreVariables.AW_SEL_RS_WF_AUDIT_LOG_BY_WF_STEP = '[LL_REPTAG_"AW_SEL_RS_WF_AUDIT_LOG_BY_WF_STEP" NODEINFO:ID /]';
+    /* end validation additions */
+
+    window.msgVariables = {
+        "loadThread_ID": ""
+    , "markMessagesRead_ID": '[LL_REPTAG_"AW_U_RS_WF_MESSAGES_mark_read" NODEINFO:ID /]'       // This value is set in the AW_MESSAGES management include WR
+    , "retrieveLastMessage_ID": '[LL_REPTAG_"AW_SEL_RS_WF_MESSAGES_find_latest" NODEINFO:ID /]'   // This value is set in the AW_MESSAGES management include WR
+    , "newMessageButtonActive": false       // true only if the new message button is currently in the clicked state
+    };
+})
