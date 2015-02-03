@@ -1,0 +1,135 @@
+define(["jquery"],function () {
+
+//TO DO - DON"T LIKE THE WAY THE VARIABLE IS IMBEDDED - VARIABLE SHOULD BE SEPERATE JSON REPORT
+
+    var stepReady, now, today;
+
+    //MY SAMPLE STEP - THE VALUE IS NULL
+    try{
+        
+        [LL_WEBREPORT_IF "[LL_REPTAG=DATE_STEP_READY /]" == "?" /]
+
+            coreVariables.daysAtStep = 1;
+
+        [LL_WEBREPORT_ELSE /]
+            
+            stepReady = "[LL_REPTAG=DATE_STEP_READY SUBSTR:7:4 /]";
+            stepReady = new Date( [LL_REPTAG=DATE_STEP_READY SUBSTR:7:4 /], [LL_REPTAG=DATE_STEP_READY SUBSTR:1:2 INT DEC /], [LL_REPTAG=DATE_STEP_READY SUBSTR:4:2 /], [LL_REPTAG=DATE_STEP_READY SUBSTR:12:2 /], [LL_REPTAG=DATE_STEP_READY SUBSTR:15:2 /], [LL_REPTAG=DATE_STEP_READY SUBSTR:18:2 /], 0 ); 
+            now = new Date(); 
+            today = new Date( now.getFullYear(), now.getMonth(), now.getDate(), now.getHours(), now.getMinutes(), now.getSeconds(), 0 );
+            
+            coreVariables.daysAtStep = "" + Math.floor( (today.getTime()-stepReady.getTime()) / (1000*60*60*24) );
+
+        [LL_WEBREPORT_ENDIF /]
+
+    }catch(err){
+        //No error handling just protecting function
+    }
+
+    coreVariables["GenSelectVars"] = {"PROJECT_ID":"[LL_REPTAG=PROJECT_ID DECODE:"?":"" /]"
+                    , "IDEA_ID":"[LL_REPTAG=IDEA_ID DECODE:"?":"-1":"?":"-1" /]"
+                    , "AWARD_PROPOSAL_NBR":"[LL_REPTAG=AWARD_PROPOSAL_NBR DECODE:"?":"" /]"
+                    , "GRANTS_GOV_NBR":"[LL_REPTAG=GRANTS_GOV_NBR DECODE:"?":"" /]"
+                    , "AWARD_NBR":"[LL_REPTAG=AWARD_NBR DECODE:"?":"" /]"
+                    , "AWARD_NBR2":"[LL_REPTAG=AWARD_NBR2 DECODE:"?":"" /]"
+                    , "AWARD_BAA_FK":"[LL_REPTAG=AWARD_BAA_FK DECODE:"?":"" /]"
+                    , "AWARD_STATUS":"[LL_REPTAG=AWARD_STATUS DECODE:"?":"" /]"
+                    , "AWARD_PERFORMANCE_METHOD":"[LL_REPTAG=AWARD_PERFORMANCE_METHOD DECODE:"?":"" /]"
+                    , "AWARD_TITLE": '[LL_REPTAG=AWARD_TITLE DECODE:"'":"" /]'
+                    , "PROJECT_TYPE":"[LL_REPTAG=PROJECT_TYPE DECODE:"?":"" /]"
+                    , "AFOSR_OFFICE":"[LL_REPTAG=AFOSR_OFFICE DECODE:"?":"" /]"
+                    , "AFOSR_OFFICE_2":"[LL_REPTAG=AFOSR_OFFICE_2 DECODE:"?":"" /]"
+                    , "STTR_TOPIC_ID_FK":"[LL_REPTAG=STTR_TOPIC_ID_FK DECODE:"?":"" /]"
+                    , "PK_TEAM":"[LL_REPTAG=PK_TEAM DECODE:"?":"" /]"
+                    , "AWARD_BUYER":"[LL_REPTAG=AWARD_BUYER DECODE:"?":"" /]"
+                    , "AWARD_OFFICER":"[LL_REPTAG=AWARD_OFFICER DECODE:"?":"" /]"
+                    , "AWARD_START_DATE":"[LL_REPTAG=AWARD_START_DATE DECODE:"?":"" /]"
+                    , "AWARD_END_DATE":"[LL_REPTAG=AWARD_END_DATE DECODE:"?":"" /]"
+                    , "AWARD_DURATION":"[LL_REPTAG=AWARD_DURATION DECODE:"?":"" /]"
+                    , "PROPOSAL_RECEIVED_FY":"[LL_REPTAG=PROPOSAL_RECEIVED_FY DECODE:"?":"" /]"
+                    , "PROPOSAL_RECEIVED_DATE":"[LL_REPTAG=PROPOSAL_RECEIVED_DATE DECODE:"?":"" /]"
+                    , "PROPOSAL_RECEIVED_ON_TIME":"[LL_REPTAG=PROPOSAL_RECEIVED_ON_TIME DECODE:"?":"" /]"
+                    , "STTR_PHASE":"[LL_REPTAG=STTR_PHASE DECODE:"?":"" /]"
+                    , "FEDERAL_FUNDS":"[LL_REPTAG=FEDERAL_FUNDS DECODE:"?":"" /]"
+                    , "NON_FEDERAL_FUNDS":"[LL_REPTAG=NON_FEDERAL_FUNDS DECODE:"?":"" /]"
+                    , "AWARD_TOTAL_FUNDS":"[LL_REPTAG=AWARD_TOTAL_FUNDS DECODE:"?":"" /]"
+                    , "PM_UNIQUE_NAME":"[LL_REPTAG=PM_UNIQUE_NAME DECODE:"?":"" /]"
+                    , "COPM_UNIQUE_NAME":"[LL_REPTAG=COPM_UNIQUE_NAME DECODE:"?":"" /]"
+                    , "ODF_AFOSR_CO_PM":"[LL_REPTAG=ODF_AFOSR_CO_PM DECODE:"?":"" /]"
+                    , "AWARD_PM":"[LL_REPTAG=AWARD_PM DECODE:"?":"" /]"
+                    , "AWARD_CO_PM":"[LL_REPTAG=AWARD_CO_PM DECODE:"?":"" /]"
+                    , "AWARD_APM":"[LL_REPTAG=AWARD_APM DECODE:"?":"" /]"
+                    , "HUMAN_ANIMAL_USE":"[LL_REPTAG=HUMAN_ANIMAL_USE DECODE:"?":"" /]"
+                    , "INST_P_PI_FK":"[LL_REPTAG=INST_P_PI_FK DECODE:"?":"" /]"
+                    , "CONTRACT_TYPE":"[LL_REPTAG=CONTRACT_TYPE DECODE:"?":"" /]"
+                    , "AWARD_BASE_FY":"[LL_REPTAG=AWARD_BASE_FY DECODE:"?":"" /]"
+                    , "PRIMARY_BPAC":"[LL_REPTAG=PRIMARY_BPAC DECODE:"?":"" /]"
+                    , "INST_DIVISION":"[LL_REPTAG=INST_DIVISION DECODE:"?":"" /]"
+                    , "CAGE_CODE":"[LL_REPTAG=CAGE_CODE DECODE:"?":"" /]"
+                    , "PM_FULL_NAME":"[LL_REPTAG=PM_FULL_NAME DECODE:"?":"" /]"
+                    , "DUNS_NBR":"[LL_REPTAG=DUNS_NBR DECODE:"?":"" /]"
+                    , "INSTITUTION_ID":"[LL_REPTAG=INSTITUTION_ID DECODE:"?":"" /]"
+                    , "DTIC_INST_CODE":"[LL_REPTAG=DTIC_INST_CODE DECODE:"?":"" /]"
+                    , "INST_NAME":"[LL_REPTAG=INST_NAME DECODE:"?":"" /]"
+                    , "MAILING_STREET_ADDRESS_1":"[LL_REPTAG=MAILING_STREET_ADDRESS_1 DECODE:"?":"" /]"
+                    , "MAILING_STREET_ADDRESS_2":"[LL_REPTAG=MAILING_STREET_ADDRESS_2 DECODE:"?":"" /]"
+                    , "MAILING_CITY":"[LL_REPTAG=MAILING_CITY DECODE:"?":"" /]"
+                    , "MAILING_STATE":"[LL_REPTAG=MAILING_STATE DECODE:"?":"" /]"
+                    , "MAILING_POSTAL_CODE":"[LL_REPTAG=MAILING_POSTAL_CODE DECODE:"?":"" /]"
+                    , "MAILING_COUNTRY":"[LL_REPTAG=MAILING_COUNTRY DECODE:"?":"" /]"
+                    , "INST_EMAIL":"[LL_REPTAG=INST_EMAIL DECODE:"?":"" /]"
+                    , "PI":"[LL_REPTAG=PI DECODE:"?":"" /]"
+                    , "INST_P_FIRSTNAME":"[LL_REPTAG=INST_P_FIRSTNAME DECODE:"?":"" /]"
+                    , "INST_P_LASTNAME":"[LL_REPTAG=INST_P_LASTNAME DECODE:"?":"" /]"
+                    , "INST_P_EMAIL":"[LL_REPTAG=INST_P_EMAIL DECODE:"?":"" /]"
+                    , "INST_P_JOB_TITLE":"[LL_REPTAG=INST_P_JOB_TITLE DECODE:"?":"" /]"
+                    , "INST_P_OFFICE":"[LL_REPTAG=INST_P_OFFICE DECODE:"?":"" /]"
+                    , "INST_P_PHONE":"[LL_REPTAG=INST_P_PHONE DECODE:"?":"" /]"
+                    , "INST_P_FAX":"[LL_REPTAG=INST_P_FAX DECODE:"?":"" /]"
+                    , "INST_P_ADDRESS1":"[LL_REPTAG=INST_P_ADDRESS1 DECODE:"?":"" /]"
+                    , "INST_P_ADDRESS2":"[LL_REPTAG=INST_P_ADDRESS2 DECODE:"?":"" /]"
+                    , "INST_P_CITY":"[LL_REPTAG=INST_P_CITY DECODE:"?":"" /]"
+                    , "INST_P_STATE":"[LL_REPTAG=INST_P_STATE DECODE:"?":"" /]"
+                    , "INST_P_COUNTRY":"[LL_REPTAG=INST_P_COUNTRY DECODE:"?":"" /]"
+                    , "POSTAL_CODE":"[LL_REPTAG=POSTAL_CODE DECODE:"?":"" /]"
+                    , "BAA_ID":"[LL_REPTAG=BAA_ID DECODE:"?":"" /]"
+                    , "DODAAC_ID":"[LL_REPTAG=DODAAC_ID DECODE:"?":"" /]"
+                    , "DODAAC_CODE":"[LL_REPTAG=DODAAC_CODE DECODE:"?":"" /]"
+                    , "DODAAC_NAME":"[LL_REPTAG=DODAAC_NAME DECODE:"?":"" /]"
+                    , "DATE_PACKAGE_COMPLETE":"[LL_REPTAG=DATE_PACKAGE_COMPLETE DECODE:"?":"" /]"
+                    , "AWARD_SHORT_TITLE": '[LL_REPTAG=AWARD_TITLE DECODE:"'":"" /]'
+                    , "ODF_PARENT_ID":"[LL_REPTAG=ODF_PARENT_ID DECODE:"?":"" /]"
+                    , "AP_PROFILE_ID":"[LL_REPTAG=AP_PROFILE_ID DECODE:"?":"" /]"
+                    , "AP_MOD_STATUS":"[LL_REPTAG=AP_MOD_STATUS DECODE:"?":"" /]"
+                    , "AP_MOD_TYPE":"[LL_REPTAG=AP_MOD_TYPE DECODE:"?":"" /]"
+                    , "AP_MOD_NAME":"[LL_REPTAG=AP_MOD_NAME DECODE:"?":"" /]"
+                    , "AP_MOD_NBR":"[LL_REPTAG=AP_MOD_NBR DECODE:"?":"" /]"
+                    , "ACTION_DESCRIPTION":"[/*[LL_REPTAG=ACTION_DESCRIPTION DECODE:"?":"" /]*/]"
+                    , "ACTION_BUYER_KUAF_ID":"[LL_REPTAG=ACTION_BUYER_KUAF_ID DECODE:"?":"" /]"
+                    , "ACTION_OFFICER_KUAF_ID":"[LL_REPTAG=ACTION_OFFICER_KUAF_ID DECODE:"?":"" /]"
+                    , "ACTION_BUYER":"[LL_REPTAG=ACTION_BUYER DECODE:"?":"" /]"
+                    , "ACTION_OFFICER":"[LL_REPTAG=ACTION_OFFICER DECODE:"?":"" /]"
+                    , "AP_FUNDING_PERIOD_START":"[LL_REPTAG=AP_FUNDING_PERIOD_START DECODE:"?":"" /]"
+                    , "AP_FUNDING_PERIOD_END":"[LL_REPTAG=AP_FUNDING_PERIOD_END DECODE:"?":"" /]"
+                    , "AP_PERIOD_START":"[LL_REPTAG=AP_PERIOD_START DECODE:"?":"" /]"
+                    , "AP_PERIOD_END":"[LL_REPTAG=AP_PERIOD_END DECODE:"?":"" /]"
+                    , "AP_AWARD_AMOUNT":"[LL_REPTAG=AP_AWARD_AMOUNT DECODE:"?":"" /]"
+                    , "AP_PERIOD_DURATION":"[LL_REPTAG=AP_PERIOD_DURATION DECODE:"?":"" /]"
+                    , "FUNDING_DURATION":"[LL_REPTAG=FUNDING_DURATION DECODE:"?":"" /]"
+                    , "AP_OBLIGATED_AMOUNT":"[LL_REPTAG=AP_OBLIGATED_AMOUNT DECODE:"?":"" /]"
+                    , "AP_PLANNED_AMOUNT":"[LL_REPTAG=AP_PLANNED_AMOUNT DECODE:"?":"" /]"
+                    , "AP_DISTRIBUTION_EMAIL":"[LL_REPTAG=AP_DISTRIBUTION_EMAIL DECODE:"?":"" /]"
+                    , "AP_MOD_FY":"[LL_REPTAG=AP_MOD_FY DECODE:"?":"" /]"
+                    , "KICKBACK_REPORT_COMPLETE":"[LL_REPTAG=KICKBACK_REPORT_COMPLETE DECODE:"?":"" /]"
+                    , "PK_RECEIVED_DATE":"[LL_REPTAG=PK_RECEIVED_DATE DECODE:"?":"" /]"
+                    , "DATE_SIGNED":"[LL_REPTAG=DATE_SIGNED DECODE:"?":"" /]"
+                    , "DATE_BUYER_COMPLETE":"[LL_REPTAG=DATE_BUYER_COMPLETE DECODE:"?":"" /]"
+                    , "PK_OBLIGATED_DATE":"[LL_REPTAG=PK_OBLIGATED_DATE DECODE:"?":"" /]"
+                    , "AWARD_NUMBER":"[LL_REPTAG=AWARD_NUMBER DECODE:"?":"" /]"
+                    , "HUMAN_ANIMAL_USE":"[LL_REPTAG=HUMAN_ANIMAL_USE DECODE:"?":"" /]"
+                    , "PROGRAM_ANALYST":"[LL_REPTAG=PROGRAM_ANALYST DECODE:"?":"" /]"
+    };
+
+    return coreVariables["GenSelectVars"];
+
+})
