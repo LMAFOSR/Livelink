@@ -1,0 +1,47 @@
+<div id="sfrDialog" style="margin-top:14px;padding:10px;background-color:white;" title="Send Project for Review" class="gone" >
+    <form id="sfrForm">
+        <input type="hidden" id="sfrColToSet" value="EVAL_NEXT_STEP" />
+        <input type="hidden" id="sfrColValue" value="" />
+        <input type="hidden" id="sfrKickeeStepNum" value="" />
+        <input type="hidden" id="sfrShowChecks" value="Yes" />
+        <input type="hidden" id="sfrBtnName" value="" />
+        <div style="float:left">
+            <div id="sfrChecks" style="margin-bottom:15px;display:block;">
+                <div style="margin-bottom:10px;">Send Review to:</div>
+                <div id="checks">
+                    <div id="divisionSection">
+                        <div style="margin-bottom:5px;width:75px;display:inline-block;">
+                            <label for="sfrDivRev">Division:</label>
+                        </div>
+                        <span>
+                            <input type="checkbox" id="sfrDivRev" />
+                        </span>
+                    </div>
+                    <div id="policySection">
+                        <div style="margin-bottom:5px;width:75px;display:inline-block;">
+                            <label for="sfrPolRev">Policy:</label>
+                        </div>
+                        <span>
+                            <input type="checkbox" id="sfrPolRev" />
+                        </span>
+                    </div>
+                    <div id="">
+                        <div style="margin-bottom:0px;width:75px;display:inline-block;">
+                            <label for="sfrLglRev">Legal:</label>
+                        </div>
+                        <span>
+                            <input type="checkbox" id="sfrLglRev" />
+                        </span>
+                    </div>
+                </div>
+            </div>
+            <div style="margin-bottom:5px;">
+                <div id="sfrWhyText">Explain why this action is being sent for review:</div>
+                <textarea id="sfrExpText" rows="6" cols="120" class="sfrExplain" style="font-family: Century Gothic, arial, sans-serif;font-size:12px;"></textarea>
+            </div>
+            <div id="sfrErrorsHolder" style="color:red;font-style:italic;height:24px;">
+                <span id="sfrErrors"></span>
+            </div>
+        </div>
+    </form>
+</div>
